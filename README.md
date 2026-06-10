@@ -52,6 +52,44 @@ The **Power BI Optimization Skill** is a comprehensive GitHub Copilot skill ecos
 
 ---
 
+## 📦 Installation
+
+### Install via GitHub CLI (Recommended)
+
+```bash
+gh skill install PBI-Guy/Power-BI-Optimization-Skill powerbi-optimization --agent github-copilot --scope user
+```
+
+### Manual Installation
+
+**User Scope** (available in all workspaces):
+```bash
+# Clone the repository
+git clone https://github.com/PBI-Guy/Power-BI-Optimization-Skill.git
+
+# Copy to your user skills directory
+# Windows
+cp -r Power-BI-Optimization-Skill/skills/powerbi-optimization "$env:USERPROFILE/.github/skills/"
+
+# macOS/Linux
+cp -r Power-BI-Optimization-Skill/skills/powerbi-optimization ~/.github/skills/
+```
+
+**Workspace Scope** (current project only):
+```bash
+# Copy to your workspace skills directory
+cp -r Power-BI-Optimization-Skill/skills/powerbi-optimization .github/skills/
+```
+
+### Verification
+
+After installation, verify the skill is available in GitHub Copilot:
+```
+@powerbi-optimization what can you help me with?
+```
+
+---
+
 ## ✨ Key Features
 
 ### 🚀 Automatic Trigger Detection
