@@ -1,0 +1,78 @@
+{
+  "name": "powerbi-optimization",
+  "version": "1.0.0",
+  "description": "Comprehensive Power BI optimization skill for GitHub Copilot - DAX, model design, report performance, Power Query, and RLS",
+  "author": "PBI-Guy",
+  "repository": "https://github.com/PBI-Guy/Power-BI-Optimization-Skill",
+  "homepage": "https://aka.nu/PBIGuyBlog",
+  "license": "MIT",
+  "keywords": [
+    "power-bi",
+    "dax",
+    "optimization",
+    "github-copilot",
+    "semantic-model",
+    "performance"
+  ],
+  "copilot": {
+    "agents": ["github-copilot"],
+    "scopes": ["user", "workspace"],
+    "applyTo": [
+      "**/*.pbix",
+      "**/*.pbip",
+      "**/*.Dataset/**",
+      "**/*.SemanticModel/**",
+      "**/*.dax",
+      "**/*.pq",
+      "**/*.m"
+    ]
+  },
+  "skills": [
+    {
+      "id": "powerbi-optimization",
+      "name": "Power BI Optimization Hub",
+      "description": "Central triage and routing for comprehensive Power BI optimization",
+      "path": ".github/skills/powerbi-optimization/SKILL.md",
+      "type": "hub"
+    },
+    {
+      "id": "dax-mastery",
+      "name": "DAX Mastery Specialist",
+      "description": "DAX performance optimization specialist",
+      "path": ".github/skills/powerbi-optimization/specialists/dax-mastery.md",
+      "type": "specialist"
+    },
+    {
+      "id": "model-design",
+      "name": "Model Design Specialist",
+      "description": "Semantic model architecture optimization",
+      "path": ".github/skills/powerbi-optimization/specialists/model-design.md",
+      "type": "specialist"
+    },
+    {
+      "id": "report-performance",
+      "name": "Report Performance Specialist",
+      "description": "Report UX and visual performance optimization",
+      "path": ".github/skills/powerbi-optimization/specialists/report-performance.md",
+      "type": "specialist"
+    },
+    {
+      "id": "powerquery-m",
+      "name": "Power Query M Specialist",
+      "description": "Power Query optimization and query folding",
+      "path": ".github/skills/powerbi-optimization/specialists/powerquery-m.md",
+      "type": "specialist"
+    },
+    {
+      "id": "security-rls",
+      "name": "Security & RLS Specialist",
+      "description": "Row-level security patterns and optimization",
+      "path": ".github/skills/powerbi-optimization/specialists/security-rls.md",
+      "type": "specialist"
+    }
+  ],
+  "installation": {
+    "user": "~/.github/skills/powerbi-optimization",
+    "workspace": ".github/skills/powerbi-optimization"
+  }
+}
