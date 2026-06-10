@@ -1,0 +1,66 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor and IDE Files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+
+# Power BI Files (Keep project files, ignore cache)
+*.pbix.bak
+*.pbix~
+*.pbit.bak
+*.pbit~
+*_backup_*
+
+# Logs and Debugging
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Dependency Directories
+node_modules/
+jspm_packages/
+
+# Python (if used for automation)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+
+# Temporary Files
+*.tmp
+*.temp
+.cache/
+.temp/
+
+# MCP Configuration (user-specific)
+# Uncomment if you don't want to share your local MCP config
+# mcp-settings.json
+
+# Review Report (generated locally)
+PRE-PUBLICATION-REVIEW.md

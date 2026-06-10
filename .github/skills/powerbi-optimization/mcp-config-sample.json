@@ -1,0 +1,154 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-mcp/main/schemas/mcp-settings.schema.json",
+  "mcpServers": {
+    "powerbi-modeling-mcp": {
+      "comment": "Choose ONE of the configurations below based on your installation method",
+      
+      "_option_1_npx": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@microsoft/powerbi-modeling-mcp@latest",
+          "--start"
+        ],
+        "env": {
+          "BENCHMARK_WARM_ITERATIONS": "5",
+          "BENCHMARK_COLD_ITERATIONS": "5"
+        },
+        "description": "Power BI MCP Server (NPX) - Auto-downloads latest version",
+        "enabled": true
+      },
+      
+      "_option_2_manual": {
+        "command": "C:\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe",
+        "args": ["--start"],
+        "env": {
+          "BENCHMARK_WARM_ITERATIONS": "5",
+          "BENCHMARK_COLD_ITERATIONS": "5"
+        },
+        "description": "Power BI MCP Server (Manual) - Update path to your installation",
+        "enabled": true
+      },
+      
+      "note": "VS Code Extension users don't need this file - configuration is automatic"
+    }
+  },
+  "instructions": {
+    "installation_methods": [
+      "Option A: VS Code Extension (Recommended)",
+      "  - Open VS Code Extensions (Ctrl+Shift+X)",
+      "  - Search 'Power BI Modeling MCP'",
+      "  - Click Install",
+      "  - No configuration file needed!",
+      "",
+      "Option B: NPX (Node.js required)",
+      "  - Use '_option_1_npx' configuration above",
+      "  - Rename '_option_1_npx' to 'powerbi-modeling-mcp'",
+      "  - Remove other options",
+      "",
+      "Option C: Manual Download",
+      "  - Download VSIX from: https://github.com/microsoft/powerbi-modeling-mcp",
+      "  - Extract and update path in '_option_2_manual'",
+      "  - Rename '_option_2_manual' to 'powerbi-modeling-mcp'",
+      "  - Remove other options"
+    ],
+    "setup": [
+      "1. Choose installation method above",
+      "2. Enable XMLA Endpoint in Power BI Desktop (Options → Preview Features)",
+      "3. Copy this file to ~/.vscode/mcp-settings.json or workspace .vscode/mcp-settings.json",
+      "4. Restart VS Code",
+      "5. Open your Power BI model in Power BI Desktop",
+      "6. Test: @powerbi-optimization 'connect to my model'"
+    ],
+    "troubleshooting": [
+      "If connection fails:",
+      "- Verify Power BI Desktop is running",
+      "- Check XMLA endpoint is enabled",
+      "- Verify MCP server appears in GitHub Copilot tools",
+      "- Check Windows Firewall settings",
+      "- For NPX: Ensure Node.js is installed (node --version)",
+      "- For Manual: Verify executable path is correct"
+    ]
+  },
+  "configuration_options": {
+    "POWERBI_MODE": {
+      "description": "Power BI connection mode",
+      "values": ["local", "service"],
+      "default": "local",
+      "note": "Use 'local' for Power BI Desktop (recommended for optimization)"
+    },
+    "XMLA_ENDPOINT": {
+      "description": "XMLA endpoint address",
+      "examples": ["localhost", "localhost:12345", "powerbi://api.powerbi.com/v1.0/myorg/MyWorkspace"],
+      "default": "localhost",
+      "note": "Auto-discovery works best with 'localhost'"
+    },
+    "AUTO_CONNECT": {
+      "description": "Automatically discover and connect to running Power BI Desktop",
+      "values": ["true", "false"],
+      "default": "true"
+    },
+    "BENCHMARK_WARM_ITERATIONS": {
+      "description": "Number of warm cache benchmark iterations",
+      "range": "3-20",
+      "default": "5",
+      "note": "Warm cache iterations test performance after data is loaded into memory"
+    },
+    "BENCHMARK_COLD_ITERATIONS": {
+      "description": "Number of cold cache benchmark iterations",
+      "range": "3-20",
+      "default": "5",
+      "note": "Cold cache iterations test performance with cleared cache (realistic first-load scenario)"
+    },
+    "ENABLE_TEMP_MEASURES": {
+      "description": "Allow creation of temporary measures for testing",
+      "values": ["true", "false"],
+      "default": "true",
+      "note": "Required for automated optimization workflow"
+    },
+    "CLEANUP_ON_EXIT": {
+      "description": "Automatically delete temporary measures on completion",
+      "values": ["true", "false"],
+      "default": "true",
+      "note": "Keeps your model clean"
+    },
+    "LOG_LEVEL": {
+      "description": "Logging verbosity",
+      "values": ["DEBUG", "INFO", "WARNING", "ERROR"],
+      "default": "INFO"
+    },
+    "CACHE_CLEAR_METHOD": {
+      "description": "How to clear cache between benchmark runs",
+      "values": ["auto", "manual", "none"],
+      "default": "auto",
+      "note": "Some Power BI versions require 'manual' mode"
+    },
+    "MAX_QUERY_TIMEOUT": {
+      "description": "Maximum query timeout in seconds",
+      "default": "300",
+      "note": "Prevents hanging on slow queries"
+    }
+  },
+  "advanced_configuration": {
+    "authentication": {
+      "description": "For Power BI Service (not needed for local)",
+      "AZURE_TENANT_ID": "your-tenant-id",
+      "AZURE_CLIENT_ID": "your-client-id",
+      "AZURE_CLIENT_SECRET": "your-client-secret",
+      "note": "Only needed when POWERBI_MODE=service"
+    },
+    "proxy": {
+      "description": "Proxy configuration for corporate networks",
+      "HTTP_PROXY": "http://proxy.company.com:8080",
+      "HTTPS_PROXY": "https://proxy.company.com:8080",
+      "NO_PROXY": "localhost,127.0.0.1"
+    }
+  },
+  "performance_tuning": {
+    "description": "Optional performance optimizations",
+    "CONNECTION_POOL_SIZE": "5",
+    "QUERY_CACHE_SIZE": "100",
+    "PARALLEL_BENCHMARKS": "false",
+    "note": "Adjust based on your hardware and model size"
+  }
+}
